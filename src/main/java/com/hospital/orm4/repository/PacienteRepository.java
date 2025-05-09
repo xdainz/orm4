@@ -10,5 +10,6 @@ public interface PacienteRepository extends JpaRepository<Paciente, Long>{
     
     List<Paciente> findAll();
     
-
+    @SuppressWarnings("unchecked")
+    Paciente save(Paciente paciente);
 }
