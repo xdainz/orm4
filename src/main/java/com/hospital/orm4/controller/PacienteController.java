@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,9 +34,11 @@ public class PacienteController {
     @PostMapping
     public ResponseEntity<Paciente> savePaciente(@RequestBody Paciente paciente) {
 
-        if (paciente != null) {
+        if (paciente != null && !pacienteService.existsById(paciente.getId())) {
+
             return new ResponseEntity<>(pacienteService.save(paciente), HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
     }
+    
 }

@@ -12,4 +12,6 @@ public interface PacienteRepository extends JpaRepository<Paciente, Long>{
     
     @SuppressWarnings("unchecked")
     Paciente save(Paciente paciente);
+    
+    Boolean existsById(int id);
 }

@@ -21,4 +21,8 @@ public class PacienteService {
     public Paciente save(Paciente paciente){
         return pacienteRepository.save(paciente);
     }
+
+    public Boolean existsById(int id){
+        return pacienteRepository.existsById(id);
+    }
 }
